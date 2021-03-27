@@ -1,3 +1,9 @@
+/* 
+This shader is under MIT license. Feel free to use, improve and 
+change this shader according to your needs and consider sharing 
+the modified result to godotshaders.com.
+*/
+
 shader_type canvas_item;
 
 uniform sampler2D u_dither_tex;
@@ -66,5 +72,5 @@ void fragment()
 	vec3 final_col = texture(u_color_tex, vec2(col_sample, 0.5)).rgb;
 	
 	// return the final colour!
-	COLOR.rgb = vec3(final_col);
+	COLOR.rgb = final_col;
 }
