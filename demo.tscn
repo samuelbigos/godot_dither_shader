@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://dither.shader" type="Shader" id=1]
+[ext_resource path="res://color.png" type="Texture" id=2]
+[ext_resource path="res://dither_matrix.png" type="Texture" id=3]
+[ext_resource path="res://demo.gd" type="Script" id=4]
+[ext_resource path="res://test.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/u_noise_tex = ExtResource( 3 )
+shader_param/u_color_tex = ExtResource( 2 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 25, 25 )
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="PrismMesh" id=5]
+
+[node name="Demo" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+handle_input_locally = false
+hdr = false
+render_target_update_mode = 3
+shadow_atlas_size = 1024
+
+[node name="TextureRect" type="TextureRect" parent="ViewportContainer/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="ViewportContainer/Viewport"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 7.33164, 0 )
+shadow_enabled = true
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52829, 6.27066 )
+
+[node name="Primitives" type="Spatial" parent="ViewportContainer/Viewport"]
+
+[node name="Plane" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103946, -0.0237961, -0.066411 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Sphere" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.26568, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Cube" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61899, 2.26568, 0.469577 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Prism" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 0.895254, 0, 0.445557, 0, 1, 0, -0.445557, 0, 0.895254, 4.02094, 2.26568, 0.21704 )
+mesh = SubResource( 5 )
+material/0 = null
