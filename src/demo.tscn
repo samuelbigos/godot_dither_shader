@@ -135,11 +135,11 @@ margin_top = 20.0
 margin_right = 280.0
 margin_bottom = 24.0
 
-[node name="Contrast" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
+[node name="DitherSize" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
 margin_top = 28.0
 margin_bottom = 44.0
 
-[node name="HSeparator2" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+[node name="HSeparator3" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
 margin_top = 48.0
 margin_right = 280.0
 margin_bottom = 52.0
@@ -147,11 +147,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DitherSize" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
+[node name="Contrast" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
 margin_top = 56.0
 margin_bottom = 72.0
 
-[node name="HSeparator3" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+[node name="HSeparator2" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
 margin_top = 76.0
 margin_right = 280.0
 margin_bottom = 80.0
@@ -188,38 +188,42 @@ margin_bottom = 19.0
 text = "Palette"
 align = 2
 
-[node name="Checkbox" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/Control/TabContainer/Params/Palette"]
 margin_left = 49.0
-margin_right = 92.0
+margin_right = 185.0
+margin_bottom = 24.0
+
+[node name="Checkbox" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette/HBoxContainer"]
+margin_right = 24.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 pressed = true
 group = SubResource( 6 )
 
-[node name="Checkbox2" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
-margin_left = 96.0
-margin_right = 139.0
+[node name="Checkbox2" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette/HBoxContainer"]
+margin_left = 28.0
+margin_right = 52.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 group = SubResource( 6 )
 
-[node name="Checkbox3" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
-margin_left = 143.0
-margin_right = 186.0
+[node name="Checkbox3" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette/HBoxContainer"]
+margin_left = 56.0
+margin_right = 80.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 group = SubResource( 6 )
 
-[node name="Checkbox4" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
-margin_left = 190.0
-margin_right = 233.0
+[node name="Checkbox4" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette/HBoxContainer"]
+margin_left = 84.0
+margin_right = 108.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 group = SubResource( 6 )
 
-[node name="Checkbox5" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
-margin_left = 237.0
-margin_right = 280.0
+[node name="Checkbox5" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette/HBoxContainer"]
+margin_left = 112.0
+margin_right = 136.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 group = SubResource( 6 )
@@ -257,44 +261,44 @@ margin_bottom = 19.0
 text = "Dither Pattern"
 align = 2
 
-[node name="Dither1" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
+[node name="MarginContainer" type="HBoxContainer" parent="Controls/Control/TabContainer/Params/Dither"]
 margin_left = 94.0
-margin_right = 128.0
+margin_right = 230.0
+margin_bottom = 24.0
+
+[node name="Dither1" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither/MarginContainer"]
+margin_right = 24.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 pressed = true
 group = SubResource( 7 )
 
-[node name="Dither2" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
-margin_left = 132.0
-margin_right = 166.0
+[node name="Dither2" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither/MarginContainer"]
+margin_left = 28.0
+margin_right = 52.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-pressed = true
 group = SubResource( 7 )
 
-[node name="Dither3" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
-margin_left = 170.0
-margin_right = 204.0
+[node name="Dither3" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither/MarginContainer"]
+margin_left = 56.0
+margin_right = 80.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-pressed = true
 group = SubResource( 7 )
 
-[node name="Dither4" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
-margin_left = 208.0
-margin_right = 242.0
+[node name="Dither4" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither/MarginContainer"]
+margin_left = 84.0
+margin_right = 108.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-pressed = true
 group = SubResource( 7 )
 
-[node name="Dither5" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
-margin_left = 246.0
-margin_right = 280.0
+[node name="Dither5" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither/MarginContainer"]
+margin_left = 112.0
+margin_right = 136.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-pressed = true
 group = SubResource( 7 )
 
 [node name="DitherPreview" type="TextureRect" parent="Controls/Control/TabContainer/Params"]
@@ -329,16 +333,16 @@ icon = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox" to="." method="_on_Checkbox_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox2" to="." method="_on_Checkbox2_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox3" to="." method="_on_Checkbox3_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox4" to="." method="_on_Checkbox4_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox5" to="." method="_on_Checkbox5_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither1" to="." method="_on_Dither1_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither2" to="." method="_on_Dither2_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither3" to="." method="_on_Dither3_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither4" to="." method="_on_Dither4_pressed"]
-[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither5" to="." method="_on_Dither5_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox" to="." method="_on_Checkbox_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox2" to="." method="_on_Checkbox2_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox3" to="." method="_on_Checkbox3_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox4" to="." method="_on_Checkbox4_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox5" to="." method="_on_Checkbox5_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/MarginContainer/Dither1" to="." method="_on_Dither1_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/MarginContainer/Dither2" to="." method="_on_Dither2_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/MarginContainer/Dither3" to="." method="_on_Dither3_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/MarginContainer/Dither4" to="." method="_on_Dither4_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/MarginContainer/Dither5" to="." method="_on_Dither5_pressed"]
 [connection signal="pressed" from="Controls/Control/Minimise" to="." method="_on_Minimise_pressed"]
 [connection signal="button_down" from="Controls/Control/Move" to="." method="_on_Move_button_down"]
 [connection signal="button_up" from="Controls/Control/Move" to="." method="_on_Move_button_up"]
