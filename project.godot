@@ -16,9 +16,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Dither Shader Demo"
-run/main_scene="res://demo.tscn"
+run/main_scene="res://src/demo.tscn"
 config/icon="res://icon.png"
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/default_env.tres"

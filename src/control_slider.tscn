@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/control_slider.gd" type="Script" id=2]
+
+[node name="Slider" type="HBoxContainer"]
+margin_right = 280.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 4.0
+margin_right = 44.0
+margin_bottom = 18.0
+text = "default"
+align = 2
+
+[node name="ValueSlider" type="HSlider" parent="."]
+margin_left = 48.0
+margin_right = 241.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueLabel" type="Label" parent="."]
+margin_left = 245.0
+margin_top = 4.0
+margin_right = 280.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 35, 0 )
+text = "0"
+align = 2
+[connection signal="value_changed" from="ValueSlider" to="." method="_on_ValueSlider_value_changed"]

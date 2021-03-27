@@ -1,0 +1,344 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://shader/dither.shader" type="Shader" id=1]
+[ext_resource path="res://src/control_slider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/min.png" type="Texture" id=3]
+[ext_resource path="res://assets/bayer16tile2.png" type="Texture" id=4]
+[ext_resource path="res://assets/bayer4tile8.png" type="Texture" id=5]
+[ext_resource path="res://assets/test.png" type="Texture" id=6]
+[ext_resource path="res://assets/move.png" type="Texture" id=7]
+[ext_resource path="res://src/demo.gd" type="Script" id=8]
+[ext_resource path="res://src/control_slider.gd" type="Script" id=9]
+[ext_resource path="res://assets/palette_eeve.png" type="Texture" id=10]
+[ext_resource path="res://assets/palette_moonlight.png" type="Texture" id=11]
+[ext_resource path="res://assets/palette_mono.png" type="Texture" id=12]
+[ext_resource path="res://assets/palette_hollow.png" type="Texture" id=13]
+[ext_resource path="res://assets/palette_rising_sun.png" type="Texture" id=14]
+[ext_resource path="res://assets/bayer2tile16.png" type="Texture" id=15]
+[ext_resource path="res://assets/blue_noise.png" type="Texture" id=16]
+[ext_resource path="res://assets/bayer8tile4.png" type="Texture" id=17]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/u_bit_depth = null
+shader_param/u_contrast = null
+shader_param/u_offset = null
+shader_param/u_dither_size = null
+shader_param/u_color_tex = ExtResource( 11 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 25, 25 )
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="PrismMesh" id=5]
+
+[sub_resource type="ButtonGroup" id=6]
+
+[sub_resource type="ButtonGroup" id=7]
+
+[node name="Demo" type="Spatial"]
+script = ExtResource( 8 )
+palettes = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 14 ) ]
+dither_patterns = [ ExtResource( 4 ), ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 16 ) ]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+handle_input_locally = false
+hdr = false
+render_target_update_mode = 3
+shadow_atlas_size = 1024
+
+[node name="Gradient" type="TextureRect" parent="ViewportContainer/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="ViewportContainer/Viewport"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 7.33164, 0 )
+shadow_enabled = true
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52829, 6.27066 )
+
+[node name="Primitives" type="Spatial" parent="ViewportContainer/Viewport"]
+
+[node name="Plane" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103946, -0.0237961, -0.066411 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Sphere" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.742296, 2.33721, 1.39276 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Cube" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09066, 2.26568, 0.0691072 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Prism" type="MeshInstance" parent="ViewportContainer/Viewport/Primitives"]
+transform = Transform( 0.895254, 0, 0.445557, 0, 1, 0, -0.445557, 0, 0.895254, 4.20599, 2.26568, 0.964667 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Controls" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Controls"]
+margin_left = 715.0
+margin_top = 17.0
+margin_right = 755.0
+margin_bottom = 57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="Controls/Control"]
+margin_right = 288.0
+margin_bottom = 196.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Params" type="VBoxContainer" parent="Controls/Control/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 280, 0 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BitDepth" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
+margin_bottom = 16.0
+
+[node name="HSeparator" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+margin_top = 20.0
+margin_right = 280.0
+margin_bottom = 24.0
+
+[node name="Contrast" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
+margin_top = 28.0
+margin_bottom = 44.0
+
+[node name="HSeparator2" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+margin_top = 48.0
+margin_right = 280.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DitherSize" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
+margin_top = 56.0
+margin_bottom = 72.0
+
+[node name="HSeparator3" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+margin_top = 76.0
+margin_right = 280.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Offset" parent="Controls/Control/TabContainer/Params" instance=ExtResource( 2 )]
+margin_top = 84.0
+margin_bottom = 100.0
+
+[node name="HSeparator4" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+margin_top = 104.0
+margin_right = 280.0
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Palette" type="HBoxContainer" parent="Controls/Control/TabContainer/Params"]
+margin_top = 112.0
+margin_right = 280.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls/Control/TabContainer/Params/Palette"]
+margin_top = 5.0
+margin_right = 45.0
+margin_bottom = 19.0
+text = "Palette"
+align = 2
+
+[node name="Checkbox" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
+margin_left = 49.0
+margin_right = 92.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+pressed = true
+group = SubResource( 6 )
+
+[node name="Checkbox2" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
+margin_left = 96.0
+margin_right = 139.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+group = SubResource( 6 )
+
+[node name="Checkbox3" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
+margin_left = 143.0
+margin_right = 186.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+group = SubResource( 6 )
+
+[node name="Checkbox4" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
+margin_left = 190.0
+margin_right = 233.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+group = SubResource( 6 )
+
+[node name="Checkbox5" type="CheckBox" parent="Controls/Control/TabContainer/Params/Palette"]
+margin_left = 237.0
+margin_right = 280.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+group = SubResource( 6 )
+
+[node name="PalettePreview" type="TextureRect" parent="Controls/Control/TabContainer/Params"]
+margin_top = 140.0
+margin_right = 280.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 16, 16 )
+expand = true
+stretch_mode = 5
+
+[node name="HSeparator5" type="HSeparator" parent="Controls/Control/TabContainer/Params"]
+margin_top = 160.0
+margin_right = 280.0
+margin_bottom = 164.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dither" type="HBoxContainer" parent="Controls/Control/TabContainer/Params"]
+margin_top = 168.0
+margin_right = 280.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls/Control/TabContainer/Params/Dither"]
+margin_top = 5.0
+margin_right = 90.0
+margin_bottom = 19.0
+text = "Dither Pattern"
+align = 2
+
+[node name="Dither1" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
+margin_left = 94.0
+margin_right = 128.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+pressed = true
+group = SubResource( 7 )
+
+[node name="Dither2" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
+margin_left = 132.0
+margin_right = 166.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+pressed = true
+group = SubResource( 7 )
+
+[node name="Dither3" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
+margin_left = 170.0
+margin_right = 204.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+pressed = true
+group = SubResource( 7 )
+
+[node name="Dither4" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
+margin_left = 208.0
+margin_right = 242.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+pressed = true
+group = SubResource( 7 )
+
+[node name="Dither5" type="CheckBox" parent="Controls/Control/TabContainer/Params/Dither"]
+margin_left = 246.0
+margin_right = 280.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+pressed = true
+group = SubResource( 7 )
+
+[node name="DitherPreview" type="TextureRect" parent="Controls/Control/TabContainer/Params"]
+margin_top = 196.0
+margin_right = 280.0
+margin_bottom = 228.0
+rect_min_size = Vector2( 32, 32 )
+expand = true
+stretch_mode = 5
+
+[node name="DitherLabel" type="Label" parent="Controls/Control/TabContainer/Params"]
+margin_top = 232.0
+margin_right = 280.0
+margin_bottom = 246.0
+
+[node name="Minimise" type="Button" parent="Controls/Control"]
+margin_left = 231.0
+margin_top = -1.0
+margin_right = 259.0
+margin_bottom = 21.0
+icon = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move" type="Button" parent="Controls/Control"]
+margin_left = 199.0
+margin_top = -1.0
+margin_right = 227.0
+margin_bottom = 21.0
+icon = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox" to="." method="_on_Checkbox_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox2" to="." method="_on_Checkbox2_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox3" to="." method="_on_Checkbox3_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox4" to="." method="_on_Checkbox4_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/Checkbox5" to="." method="_on_Checkbox5_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither1" to="." method="_on_Dither1_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither2" to="." method="_on_Dither2_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither3" to="." method="_on_Dither3_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither4" to="." method="_on_Dither4_pressed"]
+[connection signal="pressed" from="Controls/Control/TabContainer/Params/Dither/Dither5" to="." method="_on_Dither5_pressed"]
+[connection signal="pressed" from="Controls/Control/Minimise" to="." method="_on_Minimise_pressed"]
+[connection signal="button_down" from="Controls/Control/Move" to="." method="_on_Move_button_down"]
+[connection signal="button_up" from="Controls/Control/Move" to="." method="_on_Move_button_up"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/color.png-cf497ebfbe786d3992de5030dda0fb79.stex"
+path="res://.import/bayer16tile2.png-339cd19d2a25562a91e8b4baa0241df5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://color.png"
-dest_files=[ "res://.import/color.png-cf497ebfbe786d3992de5030dda0fb79.stex" ]
+source_file="res://assets/bayer16tile2.png"
+dest_files=[ "res://.import/bayer16tile2.png-339cd19d2a25562a91e8b4baa0241df5.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

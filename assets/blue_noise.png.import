@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test.png-2b0b935732229e5bd5e655f2644b2498.stex"
+path="res://.import/blue_noise.png-281e273d7aac67a36c481d1aa2c07cc8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test.png"
-dest_files=[ "res://.import/test.png-2b0b935732229e5bd5e655f2644b2498.stex" ]
+source_file="res://assets/blue_noise.png"
+dest_files=[ "res://.import/blue_noise.png-281e273d7aac67a36c481d1aa2c07cc8.stex" ]
 
 [params]
 

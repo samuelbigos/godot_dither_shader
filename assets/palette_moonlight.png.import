@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dither_matrix.png-b8c7767a53a848cb41ae9c53b5990ce0.stex"
+path="res://.import/palette_moonlight.png-92c30c2dd84c5e65f5f039c92dfe6791.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dither_matrix.png"
-dest_files=[ "res://.import/dither_matrix.png-b8c7767a53a848cb41ae9c53b5990ce0.stex" ]
+source_file="res://assets/palette_moonlight.png"
+dest_files=[ "res://.import/palette_moonlight.png-92c30c2dd84c5e65f5f039c92dfe6791.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
