@@ -66,5 +66,5 @@ void fragment()
 	vec3 final_col = texture(u_color_tex, vec2(col_sample, 0.5)).rgb;
 	
 	// return the final colour!
-    COLOR.rgb = vec3(final_col);
+	COLOR.rgb = vec3(final_col);
 }
