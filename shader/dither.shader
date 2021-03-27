@@ -22,7 +22,7 @@ void fragment()
 	// adjust with contrast and offset parameters
 	float contrast = u_contrast;
 	lum = (lum - 0.5 + u_offset) * contrast + 0.5;
-	lum = clamp(lum - 0.0, 0.0, 1.0);
+	lum = clamp(lum, 0.0, 1.0);
 	
 	// reduce luminosity bit depth to give a more banded visual if desired	
 	float bits = float(u_bit_depth);

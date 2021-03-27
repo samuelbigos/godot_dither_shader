@@ -20,10 +20,11 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
-shader_param/u_bit_depth = null
-shader_param/u_contrast = null
+shader_param/u_bit_depth = 32
+shader_param/u_contrast = 1.0
 shader_param/u_offset = null
-shader_param/u_dither_size = null
+shader_param/u_dither_size = 2
+shader_param/u_dither_tex = ExtResource( 4 )
 shader_param/u_color_tex = ExtResource( 11 )
 
 [sub_resource type="PlaneMesh" id=2]
