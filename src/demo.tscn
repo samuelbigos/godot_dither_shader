@@ -97,9 +97,9 @@ material/0 = null
 [node name="Controls" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="Controls"]
-margin_left = 719.0
+margin_left = 659.0
 margin_top = 11.0
-margin_right = 759.0
+margin_right = 699.0
 margin_bottom = 51.0
 __meta__ = {
 "_edit_use_anchors_": false

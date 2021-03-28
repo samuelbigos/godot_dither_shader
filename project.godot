@@ -14,6 +14,11 @@ config/name="Godot Dither Shader Demo"
 run/main_scene="res://src/demo.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=960
+window/size/height=540
+
 [rendering]
 
 environment/default_environment="res://assets/default_env.tres"

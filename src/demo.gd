@@ -36,6 +36,8 @@ func _ready():
 	_dither_preview.texture = dither_patterns[0]
 	_dither_label.text = "Bayer 16x16"
 	
+	_debug_controls.rect_position.x = get_viewport().size.x - 300.0
+	
 	_control_bitdepth.setup("Bit Depth", 2, 64, 32, 1)
 	_control_contrast.setup("Contrast", 0.0, 5.0, 1.0, 0.01)
 	_control_offset.setup("Offset", -1.0, 1.0, 0.0, 0.01)
