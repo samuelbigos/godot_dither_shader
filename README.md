@@ -1,6 +1,6 @@
 # Godot Dither Shader
 
-![Preview Image](promo/ss1.png)
+![Preview Image](promo/ss4.png)
 
 This is a dither shader inspired by Lucas Pope's Return of the Obra Dinn.
 
