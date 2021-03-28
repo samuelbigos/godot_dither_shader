@@ -42,7 +42,7 @@ size = Vector2( 25, 25 )
 
 [node name="Demo" type="Spatial"]
 script = ExtResource( 8 )
-palettes = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 14 ) ]
+palettes = [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 14 ) ]
 dither_patterns = [ ExtResource( 4 ), ExtResource( 17 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 16 ) ]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
@@ -97,10 +97,10 @@ material/0 = null
 [node name="Controls" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="Controls"]
-margin_left = 715.0
-margin_top = 17.0
-margin_right = 755.0
-margin_bottom = 57.0
+margin_left = 719.0
+margin_top = 11.0
+margin_right = 759.0
+margin_bottom = 51.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -334,6 +334,7 @@ icon = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox" to="." method="_on_Checkbox_pressed"]
 [connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox2" to="." method="_on_Checkbox2_pressed"]
 [connection signal="pressed" from="Controls/Control/TabContainer/Params/Palette/HBoxContainer/Checkbox3" to="." method="_on_Checkbox3_pressed"]
